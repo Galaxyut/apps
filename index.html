@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In / Out Stock List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Inventory</p>
+          <h1>In / Out Stock List</h1>
+        </div>
+        <button id="resetBtn" class="secondary-btn" type="button">Reset sample data</button>
+      </header>
+
+      <section class="panel form-panel">
+        <h2>Add transaction</h2>
+        <form id="stockForm">
+          <div class="grid">
+            <label>
+              <span>Date</span>
+              <input type="date" id="date" required />
+            </label>
+            <label>
+              <span>Item</span>
+              <input type="text" id="item" placeholder="A4 paper" required />
+            </label>
+            <label>
+              <span>Item code</span>
+              <input type="text" id="itemCode" placeholder="SKU-001" required />
+            </label>
+            <label>
+              <span>In qty</span>
+              <input type="number" id="inQty" min="0" value="0" />
+            </label>
+            <label>
+              <span>Out qty</span>
+              <input type="number" id="outQty" min="0" value="0" />
+            </label>
+            <label>
+              <span>Unit</span>
+              <input type="text" id="unit" placeholder="pcs / box / pack" value="pcs" />
+            </label>
+            <label>
+              <span>Supplier / customer</span>
+              <input type="text" id="party" placeholder="ABC Supplier" />
+            </label>
+            <label class="full-width">
+              <span>Remarks</span>
+              <input type="text" id="remarks" placeholder="Delivery / sale / return" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary-btn">Save transaction</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="summary-grid">
+        <div class="panel stat-card">
+          <p>Total items</p>
+          <h3 id="totalItems">0</h3>
+        </div>
+        <div class="panel stat-card">
+          <p>Total in</p>
+          <h3 id="totalIn">0</h3>
+        </div>
+        <div class="panel stat-card">
+          <p>Total out</p>
+          <h3 id="totalOut">0</h3>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="list-header">
+          <h2>Stock summary</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Code</th>
+                <th>Unit</th>
+                <th>Total in</th>
+                <th>Total out</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="list-header">
+          <h2>Transactions</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Code</th>
+                <th>In</th>
+                <th>Out</th>
+                <th>Unit</th>
+                <th>Supplier / customer</th>
+                <th>Remarks</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="transactionTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
